@@ -10,7 +10,8 @@ export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <>
-      <StopWatchButton />
+      <StopWatchButton  />
+      <button type='button' className="m-6 h-20 w-20 justify-center rounded-full border border-blue-200 py-1 text-2xl">Haha</button>
       <button
         type="button"
         className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
