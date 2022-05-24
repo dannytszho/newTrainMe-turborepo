@@ -17,11 +17,16 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 
 export const StopwatchButton = (args) => {
-  const [isActive, setIsActive] = useState(false)
-  const toggle = () => {
-    setIsActive(!isActive)
-  }
-  return <Button onClick={toggle} label={isActive ? 'Pause' : 'Start'} {...args}/>
+  const [isActive, setIsActive] = useState(args.isActive ?? '')
+  
+  return <Button 
+    {...args} 
+    onClick={(...params) => {
+      args.onClick(...params);
+      setIsActive(!isActive);
+    }} 
+    label={isActive ? 'Pause' : 'Start'} 
+  />
 };
 
 const Template = (args) => <StopwatchButton {...args} />;
