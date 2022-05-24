@@ -1,28 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './button.css';
 import StopWatchButton from 'ui/buttons/StopWatchButton';
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+
+export const Button = ({ label, onClick, backgroundColor, ...props }) => {
+  // const [isActive, setIsActive] = useState(false)
+  // const onclick = () => {
+  //   setIsActive(!isActive)
+  // }
+
   return (
     <>
-      <StopWatchButton  />
-      <button type='button' className="m-6 h-20 w-20 justify-center rounded-full border border-blue-200 py-1 text-2xl">Haha</button>
-      <button
-        type="button"
-        className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-        style={backgroundColor && { backgroundColor }}
-        {...props}
-      >
+      <StopWatchButton onClick={onClick}>
         {label}
-      </button>
+      </StopWatchButton>
+      <button
+      className={`m-6 h-20 w-20 justify-center rounded-full bg-[${backgroundColor}] border border-blue-200 py-1 text-2xl`}
+      onClick={onClick}
+      type="button"
+    >
+      {label}
+    </button>
     </>
   );
 };
+
 
 Button.propTypes = {
   /**
@@ -51,5 +56,5 @@ Button.defaultProps = {
   backgroundColor: null,
   primary: false,
   size: 'medium',
-  onClick: undefined,
+  onClick: undefined
 };
