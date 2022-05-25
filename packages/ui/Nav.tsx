@@ -9,7 +9,7 @@ const Nav = () => {
       <div className="m-4 flex items-center space-x-5">
         <Link href="/">Train Me</Link>
         <div className="item-center hidden space-x-5 md:inline-flex">
-          <Link href="/about">
+          <Link href="#about">
             <h3 className="cursor-pointer p-1">About</h3>
           </Link>
           <NavButton description="Awareness" href="/aware" />
