@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import NavButton from './buttons/NavButton'
 import ThemeButton from './buttons/ThemeButton'
-import { SignedOut, UserButton } from '@clerk/nextjs'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 const Nav = () => {
   return (
@@ -12,9 +12,11 @@ const Nav = () => {
           <Link href="#about">
             <h3 className="cursor-pointer p-1">About</h3>
           </Link>
-          <NavButton description="Awareness" href="/aware" />
-          <NavButton description="Stopwatch" href="/stopwatch" />
-          <NavButton description="Players" href="/players" />
+            <NavButton description="Stopwatch" href="/stopwatch" />
+          <SignedIn>
+            <NavButton description="Awareness" href="/aware" />
+            <NavButton description="Players" href="/players" />
+          </SignedIn>
         </div>
       </div>
       <div className="flex items-center space-x-5">
