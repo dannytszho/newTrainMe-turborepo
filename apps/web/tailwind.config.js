@@ -33,19 +33,16 @@ module.exports = {
             'margin-top':'0px'
           },
           '38%': {
-            'margin-top':'-90px'
+            'margin-top':'-60px'
           },
           '66%': {
-            'margin-top':'0px'
+            'margin-top':'-60px'
           },
           '71%': {
             'margin-top':'0px'
           },
-          '99.99%': {
-            'margin-top':'0px'
-          },
           '100%': {
-            'margin-top':'-270px'
+            'margin-top':'0px'
           }
         }
       }
