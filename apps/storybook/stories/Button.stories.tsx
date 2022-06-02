@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { action } from '@storybook/addon-actions'
 import { Button } from './Button';
+import { NavvButton } from './NavvButton';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -11,6 +12,9 @@ export default {
   argTypes: {
     onClick: {action: 'clicked'},
     backgroundColor: { control: 'color' },
+    navButtonSizee: { options: ['w-20 h-6', 'w-28 h-8', 'w-36 h-10'] },
+    size: { options: ['w-14 h-14', 'w-20 h-20', 'w-32 h-32'] },
+    label: { control: { disable: true }},
   },
 };
 
@@ -29,30 +33,13 @@ export const StopwatchButton = (args) => {
   />
 };
 
-const Template = (args) => <StopwatchButton {...args} />;
+// const Template = (args) => <StopwatchButton {...args} />;
 StopwatchButton.args = {}
 
+export const NavButton = (navButtonSize) => {
+  return <NavvButton navButtonSize={navButtonSize} />
+}
 
-export const Primary = Template.bind({});
-// // More on args: https://storybook.js.org/docs/react/writing-stories/args
-// Primary.args = {
-//   primary: true,
-//   label: 'Button',
-// };
+NavButton.args = {}
 
-// export const Secondary = Template.bind({});
-// Secondary.args = {
-//   label: 'Button',
-// };
 
-// export const Large = Template.bind({});
-// Large.args = {
-//   size: 'large',
-//   label: 'Button',
-// };
-
-// export const Small = Template.bind({});
-// Small.args = {
-//   size: 'small',
-//   label: 'Button',
-// };

@@ -6,7 +6,7 @@ import StopWatchButton from 'ui/buttons/StopWatchButton';
  * Primary UI component for user interaction
  */
 
-export const Button = ({ label, onClick, backgroundColor, ...props }) => {
+export const Button = ({ label, onClick, backgroundColor, size, ...props }) => {
   // const [isActive, setIsActive] = useState(false)
   // const onclick = () => {
   //   setIsActive(!isActive)
@@ -14,16 +14,17 @@ export const Button = ({ label, onClick, backgroundColor, ...props }) => {
 
   return (
     <>
-      <StopWatchButton onClick={onClick}>
+      <StopWatchButton size={size} onClick={onClick}>
         {label}
       </StopWatchButton>
-      <button
+      
+      {/* <button
       className={`m-6 h-20 w-20 justify-center rounded-full bg-[${backgroundColor}] border border-blue-200 py-1 text-2xl`}
       onClick={onClick}
       type="button"
     >
       {label}
-    </button>
+      </button> */}
     </>
   );
 };
@@ -41,7 +42,7 @@ Button.propTypes = {
   /**
    * How large should the button be?
    */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.string,
   /**
    * Button contents
    */
@@ -55,6 +56,6 @@ Button.propTypes = {
 Button.defaultProps = {
   backgroundColor: null,
   primary: false,
-  size: 'medium',
+  size: 'w-20 h-20',
   onClick: undefined
 };

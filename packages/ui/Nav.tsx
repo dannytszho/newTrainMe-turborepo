@@ -2,8 +2,13 @@ import Link from 'next/link'
 import NavButton from './buttons/NavButton'
 import ThemeButton from './buttons/ThemeButton'
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
 
 const Nav = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <header className="mx-auto flex max-w-7xl justify-between p-5">
       <ul className="m-4 flex items-center space-x-5">
@@ -22,20 +27,20 @@ const Nav = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
           </svg>
         </li>
-            <NavButton description="Stopwatch" href="/stopwatch" />
+            <NavButton size={'w-28 h-8'} description="Stopwatch" href="/stopwatch" />
             <li className="text-gray-300 pt-2">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
               </svg>
             </li>
           <SignedIn>
-            <NavButton description="Awareness" href="/aware" />
+            <NavButton size={'w-28 h-8'} description="Awareness" href="/aware" />
             <li className="text-gray-300 pt-2">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="w-4 h-4 current-fill" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
               </svg>
             </li>
-            <NavButton description="Players" href="/players" />
+            <NavButton size={'w-24 h-8'} description="Players" href="/players" />
           </SignedIn>
         </div>
       </ul>
@@ -52,6 +57,12 @@ const Nav = () => {
         </SignedOut>
         <ThemeButton />
         <UserButton />
+          <FontAwesomeIcon className="cursor-pointer" icon={faBars} style={{ fontSize: 25 }} onClick={() => setIsMenuOpen(!isMenuOpen) } />
+          <div className={isMenuOpen ? "bg-white h-full w-20": "none"}>
+            <div className="absolute top-0 right-0 px-8 py-8"
+            onClick={() => setIsMenuOpen(false)}>
+            </div>
+          </div>
       </div>
     </header>
   )
