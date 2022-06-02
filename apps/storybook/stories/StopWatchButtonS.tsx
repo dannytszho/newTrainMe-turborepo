@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import StopWatchButton from 'ui/buttons/StopWatchButton';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import StopWatchButton from 'ui/buttons/StopWatchButton'
 
 /**
  * Primary UI component for user interaction
  */
 
-export const Button = ({ label, onClick, backgroundColor, size, ...props }) => {
+export const StopWatchButtonS = ({
+  label,
+  onClick,
+  backgroundColor,
+  size,
+  ...props
+}) => {
   // const [isActive, setIsActive] = useState(false)
   // const onclick = () => {
   //   setIsActive(!isActive)
@@ -17,7 +23,7 @@ export const Button = ({ label, onClick, backgroundColor, size, ...props }) => {
       <StopWatchButton size={size} onClick={onClick}>
         {label}
       </StopWatchButton>
-      
+
       {/* <button
       className={`m-6 h-20 w-20 justify-center rounded-full bg-[${backgroundColor}] border border-blue-200 py-1 text-2xl`}
       onClick={onClick}
@@ -26,11 +32,10 @@ export const Button = ({ label, onClick, backgroundColor, size, ...props }) => {
       {label}
       </button> */}
     </>
-  );
-};
+  )
+}
 
-
-Button.propTypes = {
+StopWatchButtonS.propTypes = {
   /**
    * Is this the principal call to action on the page?
    */
@@ -51,11 +56,11 @@ Button.propTypes = {
    * Optional click handler
    */
   onClick: PropTypes.func,
-};
+}
 
-Button.defaultProps = {
+StopWatchButtonS.defaultProps = {
   backgroundColor: null,
   primary: false,
   size: 'w-20 h-20',
-  onClick: undefined
-};
+  onClick: undefined,
+}

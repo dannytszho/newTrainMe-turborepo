@@ -5,7 +5,7 @@ const StopwatchButon = ({
   children,
   size
 }: {
-  onClick: any
+  onClick: React.MouseEventHandler<HTMLButtonElement>
   children: React.ReactNode
   size: string
 }) => {
