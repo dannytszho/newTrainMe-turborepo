@@ -6,50 +6,46 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 import useTheme from './hooks/useTheme'
+import Divider from 'ui/public/svg/Divider'
+import RightMenu from './RightMenu'
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [setTheme, colorTheme] = useTheme()
+
+  const handleOpen = () => {
+    setIsMenuOpen(true)
+    const bodyElement = document.getElementsByTagName('body')?.[0]
+    console.log(bodyElement)
+    console.log('////////////////////')
+
+    if (bodyElement) {
+      bodyElement.style.overflow = 'hidden'
+    }
+  }
+
+  const handleClose = () => {
+    setIsMenuOpen(false)
+    const bodyElement = document.getElementsByTagName('body')?.[0]
+    console.log(bodyElement)
+    if (bodyElement) {
+      bodyElement.style.overflow = 'auto'
+    }
+  }
 
   return (
     <header className="mx-auto flex max-w-7xl justify-between p-5">
       <ul className="m-4 flex items-center space-x-5">
         <Link href="/">Train Me</Link>
         <li className="text-gray-300 hidden md:inline-flex">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            className="w-4 h-4 current-fill"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-            />
-          </svg>
+          <Divider />
         </li>
         <div className="item-center hidden space-x-5 md:inline-flex">
           <Link href="#about">
             <h3 className="cursor-pointer p-1">About</h3>
           </Link>
           <li className="text-gray-300 pt-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-              />
-            </svg>
+            <Divider />
           </li>
           <NavButton
             size={'medium'}
@@ -58,20 +54,7 @@ const Nav = () => {
             href="/stopwatch"
           />
           <li className="text-gray-300 pt-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-              />
-            </svg>
+            <Divider />
           </li>
           <SignedIn>
             <NavButton
@@ -81,20 +64,7 @@ const Nav = () => {
               href="/aware"
             />
             <li className="text-gray-300 pt-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                stroke="currentColor"
-                className="w-4 h-4 current-fill"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                />
-              </svg>
+              <Divider />
             </li>
             <NavButton
               size={'small'}
@@ -124,14 +94,9 @@ const Nav = () => {
           className="cursor-pointer"
           icon={faBars}
           style={{ fontSize: 25 }}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={handleOpen}
         />
-        <div className={isMenuOpen ? 'bg-white h-full w-20' : 'none'}>
-          <div
-            className="absolute top-0 right-0 px-8 py-8"
-            onClick={() => setIsMenuOpen(false)}
-          ></div>
-        </div>
+        <RightMenu open={isMenuOpen} handleClose={handleClose} />
       </div>
     </header>
   )
