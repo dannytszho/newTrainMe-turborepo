@@ -9,7 +9,7 @@ const NavButton = ({
 }: {
   description: string
   href: string
-  size: 'small' | 'medium' | 'large'
+  size: 'xSmall' | 'small' | 'medium' | 'large' | 'xLarge'
   backgroundColor: string
 }) => {
   const sizeMap = {

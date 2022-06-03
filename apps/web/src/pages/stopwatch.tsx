@@ -49,7 +49,7 @@ const StopWatch = () => {
       <h3 className="m-10 text-7xl">{`${mins}:${secs}:${ms}`}</h3>
       <div>
         <StopwatchButton
-          size={'h-20 w-20'}
+          size={'medium'}
           borderColor={'#BFDBFE'}
           borderSize={'2px'}
           onClick={toggle}
@@ -57,7 +57,7 @@ const StopWatch = () => {
           {isActive ? 'Pause' : 'Start'}
         </StopwatchButton>
         <StopwatchButton
-          size={'h-20 w-20'}
+          size={'medium'}
           borderColor={'#BFDBFE'}
           borderSize={'2px'}
           onClick={reset}

@@ -10,17 +10,16 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     onClick: { action: 'clicked' },
-    size: { options: ['w-14 h-14', 'w-20 h-20', 'w-32 h-32'] },
+    size: { options: ['small', 'medium', 'large'], control: 'radio' },
     borderColor: { control: 'color' },
     borderSize: { options: ['2px', '5px', '8px'], control: 'radio' },
     label: { control: { disable: true } },
-    // labela: { control: { type: 'text'} }
   },
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 
-export const StopwatchButton = args => {
+const StopwatchButton = args => {
   const [isActive, setIsActive] = useState(args.isActive ?? '')
 
   return (
@@ -35,5 +34,18 @@ export const StopwatchButton = args => {
   )
 }
 
-// const Template = (args) => <StopwatchButton {...args} />;
-StopwatchButton.args = {}
+export const Primary = StopwatchButton.bind({})
+
+Primary.args = {
+  size: 'medium',
+  borderColor: '#BFDBFE',
+  borderSize: '2px',
+}
+
+export const Secondary = StopwatchButton.bind({})
+
+Secondary.args = {
+  size: 'large',
+  borderColor: '#c7e054',
+  borderSize: '8px',
+}

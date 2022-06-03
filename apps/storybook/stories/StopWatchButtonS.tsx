@@ -51,9 +51,9 @@ StopWatchButtonS.propTypes = {
 }
 
 StopWatchButtonS.defaultProps = {
-  size: 'w-20 h-20',
-  primary: false,
-  borderColor: null,
+  size: 'medium',
+  borderColor: '#BFDBFE',
   borderSize: '2px',
+  primary: true,
   onClick: undefined,
 }
