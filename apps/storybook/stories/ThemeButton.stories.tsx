@@ -1,5 +1,6 @@
 import React from 'react'
 import { ThemeButtonS } from './ThemeButtonS'
+import useTheme from 'ui/hooks/useTheme'
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -7,16 +8,33 @@ export default {
   component: ThemeButtonS,
   argTypes: {
     size: { options: ['w-6 h-6', 'w-10 h-10', 'w-16 h-16'] },
-    label: { control: { type: 'text' } },
+    onClick: { action: 'Theme Changed' },
   },
 }
 
 const ThemeButton = args => {
-  return <ThemeButtonS {...args} />
+  const [setTheme, colorTheme] = useTheme()
+  return (
+    <ThemeButtonS
+      {...args}
+      onClick={(...params) => {
+        args.onClick(...params)
+        setTheme(colorTheme)
+      }}
+    >
+      {colorTheme === 'light' ? '' : ''}
+    </ThemeButtonS>
+  )
 }
 
 export const Primary = ThemeButton.bind({})
 
 Primary.args = {
   size: 'w-6 h-6',
+}
+
+export const Secondary = ThemeButton.bind({})
+
+Secondary.args = {
+  size: 'w-16 h-16',
 }

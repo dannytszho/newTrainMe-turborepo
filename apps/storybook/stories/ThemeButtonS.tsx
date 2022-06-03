@@ -2,10 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ThemeButton from 'ui/buttons/ThemeButton'
 
-export const ThemeButtonS = ({ size }) => {
+export const ThemeButtonS = ({
+  size,
+  onClick,
+  children,
+}: {
+  size: string
+  onClick: React.MouseEventHandler<HTMLButtonElement>
+  children: React.ReactNode
+}) => {
   return (
     <>
-      <ThemeButton size={size} />
+      <ThemeButton size={size} onClick={onClick}>
+        {children}
+      </ThemeButton>
     </>
   )
 }

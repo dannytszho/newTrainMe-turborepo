@@ -1,15 +1,21 @@
-import useTheme from '../hooks/useTheme'
 import React from 'react'
 
-const ThemeButton = ({ size }: { size: string }) => {
-  const [setTheme, colorTheme] = useTheme()
+const ThemeButton = ({
+  size,
+  children,
+  onClick,
+}: {
+  size: string
+  children: React.ReactNode
+  onClick: React.MouseEventHandler<HTMLButtonElement>
+}) => {
   return (
     <button
       className={`rounded-full ${size} bg-black text-black drop-shadow-xl dark:bg-white`}
       type="button"
-      onClick={() => setTheme(colorTheme)}
+      onClick={onClick}
     >
-      {colorTheme === 'light' ? '' : ''}
+      {children}
     </button>
   )
 }

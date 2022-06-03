@@ -5,9 +5,11 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
+import useTheme from './hooks/useTheme'
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [setTheme, colorTheme] = useTheme()
 
   return (
     <header className="mx-auto flex max-w-7xl justify-between p-5">
@@ -114,7 +116,9 @@ const Nav = () => {
             </Link>
           </div>
         </SignedOut>
-        <ThemeButton size={'w-6 h-6'} />
+        <ThemeButton size={'w-6 h-6'} onClick={() => setTheme(colorTheme)}>
+          {colorTheme === 'light' ? '' : ''}
+        </ThemeButton>
         <UserButton />
         <FontAwesomeIcon
           className="cursor-pointer"
