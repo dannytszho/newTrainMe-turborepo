@@ -36,7 +36,7 @@ const StopWatch = () => {
     let interval: any = null
     if (isActive) {
       interval = setInterval(() => {
-        setRemainingSecs((input) => input + 10)
+        setRemainingSecs(input => input + 10)
       }, 10)
     } else if (!isActive && remainingSecs !== 0) {
       clearInterval(interval)
@@ -48,10 +48,22 @@ const StopWatch = () => {
     <div className="flex h-screen flex-col items-center justify-center">
       <h3 className="m-10 text-7xl">{`${mins}:${secs}:${ms}`}</h3>
       <div>
-        <StopwatchButton size={'h-20 w-20'} onClick={toggle}>
+        <StopwatchButton
+          size={'h-20 w-20'}
+          borderColor={'#BFDBFE'}
+          borderSize={'2px'}
+          onClick={toggle}
+        >
           {isActive ? 'Pause' : 'Start'}
         </StopwatchButton>
-        <StopwatchButton size={'h-20 w-20'} onClick={reset}>Reset</StopwatchButton>
+        <StopwatchButton
+          size={'h-20 w-20'}
+          borderColor={'#BFDBFE'}
+          borderSize={'2px'}
+          onClick={reset}
+        >
+          Reset
+        </StopwatchButton>
       </div>
     </div>
   )

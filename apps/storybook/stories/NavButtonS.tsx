@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import NavButton from 'ui/buttons/NavButton'
 
@@ -6,10 +6,15 @@ import NavButton from 'ui/buttons/NavButton'
  * Primary UI component for user interaction
  */
 
-export const NavButtonS = ({ label, size }) => {
+export const NavButtonS = ({ label, size, backgroundColor }) => {
   return (
     <>
-      <NavButton href={'/'} size={size} description={label} />
+      <NavButton
+        href={'/'}
+        size={size}
+        backgroundColor={backgroundColor}
+        description={label}
+      />
     </>
   )
 }
@@ -23,9 +28,7 @@ NavButtonS.propTypes = {
   /**
    * Optional click handler
    */
+  backgroundColor: PropTypes.string,
 }
 
-NavButtonS.defaultProps = {
-  label: 'hello',
-  size: 'w-28 h-8',
-}
+NavButtonS.defaultProps = {}

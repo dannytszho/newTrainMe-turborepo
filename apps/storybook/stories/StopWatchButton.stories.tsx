@@ -10,12 +10,9 @@ export default {
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     onClick: { action: 'clicked' },
-    backgroundColor: { control: 'color' },
-    navButtonSize: {
-      options: ['w-20 h-6', 'w-28 h-8', 'w-36 h-10'],
-      control: { type: 'select' },
-    },
     size: { options: ['w-14 h-14', 'w-20 h-20', 'w-32 h-32'] },
+    borderColor: { control: 'color' },
+    borderSize: { options: ['2px', '5px', '8px'], control: 'radio' },
     label: { control: { disable: true } },
     // labela: { control: { type: 'text'} }
   },

@@ -50,8 +50,8 @@ const Nav = () => {
             </svg>
           </li>
           <NavButton
-            size={'w-28 h-8'}
-            color={'bg-blue-400'}
+            size={'medium'}
+            backgroundColor={'#60A5FA'}
             description="Stopwatch"
             href="/stopwatch"
           />
@@ -73,8 +73,8 @@ const Nav = () => {
           </li>
           <SignedIn>
             <NavButton
-              size={'w-28 h-8'}
-              color={'bg-blue-400'}
+              size={'medium'}
+              backgroundColor={'#60A5FA'}
               description="Awareness"
               href="/aware"
             />
@@ -95,8 +95,8 @@ const Nav = () => {
               </svg>
             </li>
             <NavButton
-              size={'w-24 h-8'}
-              color={'bg-blue-400'}
+              size={'small'}
+              backgroundColor={'#60A5FA'}
               description="Players"
               href="/players"
             />

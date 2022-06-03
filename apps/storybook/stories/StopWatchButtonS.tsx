@@ -8,9 +8,10 @@ import StopWatchButton from 'ui/buttons/StopWatchButton'
 
 export const StopWatchButtonS = ({
   label,
-  onClick,
-  backgroundColor,
   size,
+  onClick,
+  borderColor,
+  borderSize,
   ...props
 }) => {
   // const [isActive, setIsActive] = useState(false)
@@ -20,7 +21,12 @@ export const StopWatchButtonS = ({
 
   return (
     <>
-      <StopWatchButton size={size} onClick={onClick}>
+      <StopWatchButton
+        size={size}
+        borderColor={borderColor}
+        borderSize={borderSize}
+        onClick={onClick}
+      >
         {label}
       </StopWatchButton>
 
@@ -36,31 +42,18 @@ export const StopWatchButtonS = ({
 }
 
 StopWatchButtonS.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
   primary: PropTypes.bool,
-  /**
-   * What background color to use
-   */
-  backgroundColor: PropTypes.string,
-  /**
-   * How large should the button be?
-   */
   size: PropTypes.string,
-  /**
-   * Button contents
-   */
+  borderColor: PropTypes.string,
+  borderSize: PropTypes.string,
   label: PropTypes.string.isRequired,
-  /**
-   * Optional click handler
-   */
   onClick: PropTypes.func,
 }
 
 StopWatchButtonS.defaultProps = {
-  backgroundColor: null,
-  primary: false,
   size: 'w-20 h-20',
+  primary: false,
+  borderColor: null,
+  borderSize: '2px',
   onClick: undefined,
 }

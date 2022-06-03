@@ -6,8 +6,9 @@ export default {
   title: 'Train Me Design System/Buttons/NavButton',
   component: NavButtonS,
   argTypes: {
-    size: { options: ['w-20 h-6', 'w-28 h-8', 'w-36 h-10'] },
+    size: { options: ['xSmall', 'small', 'medium', 'large', 'xLarge'] },
     label: { control: { type: 'text' } },
+    backgroundColor: { control: 'color' },
   },
 }
 
@@ -18,6 +19,15 @@ const NavButton = args => {
 export const Primary = NavButton.bind({})
 
 Primary.args = {
-  label: 'YOYO',
-  size: 'w-32 h-10',
+  label: 'YOLO',
+  size: 'medium',
+  backgroundColor: '#60A5FA',
+}
+
+export const Secondary = NavButton.bind({})
+
+Secondary.args = {
+  label: "Don't repeat yourself",
+  size: 'xLarge',
+  backgroundColor: '#FA466F',
 }
