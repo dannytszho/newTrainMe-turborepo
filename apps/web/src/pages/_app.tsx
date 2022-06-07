@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: any) {
 
   return (
     <div className="h-screen transition duration-700 dark:bg-black dark:text-white">
-    <ClerkProvider>
+      <ClerkProvider>
         {isPublicPage ? (
           <Layout>
             <Component {...pageProps} />

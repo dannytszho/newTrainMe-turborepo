@@ -12,13 +12,13 @@ const RightMenu = ({
       {open && (
         <div
           className="inset-0 bg-[rgba(0,0,0,0.4)] 
-            z-[999] overflow-hidden fixed opacity-1 transition-opacity ease-in-out duration-200 flex-1"
+            z-[999] overflow-hidden fixed opacity-1 transition-opacity ease-in-out duration-800 flex-1"
           onClick={handleClose}
         />
       )}
       <div
         className={`
-			bg-white w-[300px] p-[25px] inset-y-0 right-0 z-[1000] h-full fixed overflow-y-hidden transition ease-in-out duration-200 transform 
+			bg-white w-[600px] p-[25px] inset-y-0 right-0 z-[1000] h-full fixed overflow-y-hidden transition ease-in-out duration-800 transform 
 			${open ? 'translate-x-0' : 'translate-x-full'}
 			`}
       >

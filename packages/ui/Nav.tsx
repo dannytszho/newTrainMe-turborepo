@@ -8,6 +8,8 @@ import { useState } from 'react'
 import useTheme from './hooks/useTheme'
 import Divider from 'ui/public/svg/Divider'
 import RightMenu from './RightMenu'
+import Image from 'next/image'
+import Logo from './public/soccerLogo.gif'
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -36,7 +38,12 @@ const Nav = () => {
   return (
     <header className="mx-auto flex max-w-7xl justify-between p-5">
       <ul className="m-4 flex items-center space-x-5">
-        <Link href="/">Train Me</Link>
+        <Link href="/">
+          <a>
+            <Image src={Logo} width={50} height={50} alt="logo" />
+          </a>
+        </Link>
+        <Link href="/">Train me</Link>
         <li className="text-gray-300 hidden md:inline-flex">
           <Divider />
         </li>
