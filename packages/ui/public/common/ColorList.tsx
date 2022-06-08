@@ -1,0 +1,44 @@
+const ColorList = [
+  {
+    name: 'bg-slate-50',
+    color: '#abcdef',
+  },
+  {
+    name: 'bg-slate-100',
+    color: '#F012da',
+  },
+  {
+    name: 'bg-slate-200',
+    color: 'rgb(226 232 240)',
+  },
+  {
+    name: 'bg-slate-300',
+    color: 'rgb(203 213 225)',
+  },
+  {
+    name: 'bg-slate-400',
+    color: 'rgb(148 163 184)',
+  },
+  {
+    name: 'bg-slate-500',
+    color: 'rgb(100 116 139)',
+  },
+  {
+    name: 'bg-slate-600',
+    color: 'rgb(71 85 105)',
+  },
+  {
+    name: 'bg-slate-700',
+    color: 'rgb(51 65 85)',
+  },
+  {
+    name: 'bg-slate-800',
+    color: 'rgb(30 41 59)',
+  },
+  {
+    name: 'bg-slate-900',
+    color: 'rgb(15 23 42)',
+  },
+]
+
+export default ColorList
