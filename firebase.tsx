@@ -1,18 +1,17 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore/lite';
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore/lite'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCxq4C79TayQbV4L0zXHTRDmaQqDry8o1s',
-  authDomain: 'train-me-7fcc5.firebaseapp.com',
-  projectId: 'train-me-7fcc5',
-  storageBucket: 'train-me-7fcc5.appspot.com',
-  messagingSenderId: '544537452457',
-  appId: '1:544537452457:web:a3d31d6b0cd37a447beeb8',
-};
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+}
 
 // Initial Firebase
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const app = initializeApp(firebaseConfig)
+export const db = getFirestore(app)
 
 // eslint-disable-next-line import/prefer-default-export
-

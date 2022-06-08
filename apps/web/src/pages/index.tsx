@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <title>Train Me</title>
       </Head>
       {/* Animate section */}
-      <section className="font-mono h-[800px] mx-auto bg-red-200 text-center">
+      <section className="font-mono h-[800px] mx-auto bg-gray-200 dark:bg-white text-center">
         <div className="mx-20 md:mx-40 py-5 md:py-10 border-white border-b-4"></div>
         <div className="mx-20 md:mx-40 py-5 md:py-10 border-white border-b-4">
           <div className="bg-clip-text text-[40px] md:text-[100px] font-bold text-transparent bg-gradient-to-l from-purple-700 via-red-500 to-yellow-200 animate-[textclip_2s_linear_infinite]">
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         <br />
       </section>
       {/* Hero section */}
-      <section className="px-6 p-96 mx-auto bg-red-600">
+      <section className="px-6 p-96 mx-auto dark:bg-black">
         <h1>Home</h1>
         <Link href="/aware">
           <a>Awareness</a>
@@ -48,7 +48,7 @@ const Home: NextPage = () => {
       {/* About section */}
       <section
         id="about"
-        className="px-20 md:px-64 p-96 mx-auto bg-blue-200 text-center"
+        className="px-20 md:px-64 p-96 mx-auto bg-gray-200 dark:bg-white text-center"
       >
         <div className="font-mono text-sm md:text-lg text-red-600 animate-[move_1.2s_ease-in-out_infinite]">
           Take Your Training to the Next Level!
