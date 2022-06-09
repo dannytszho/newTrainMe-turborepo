@@ -1,11 +1,11 @@
 const ColorList = [
   {
     name: 'bg-slate-50',
-    color: '#abcdef',
+    color: 'rgb(248 250 252)',
   },
   {
     name: 'bg-slate-100',
-    color: '#F012da',
+    color: 'rgb(241 245 249)',
   },
   {
     name: 'bg-slate-200',
