@@ -6,7 +6,7 @@ export const ColorsS = ({}) => {
     <>
       <h2>Color</h2>
       <div className="grid-rows-none list-none">
-        {ColorList.map(({ name, color }) => (
+        {ColorList[0].map(({ name, color }) => (
           <li
             className="flex justify-start space-x-20 space-y-2 border-b-2"
             key={name}

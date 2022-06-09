@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: 'notoSans';
+    /* font-family: Elephant; */
+    font-weight: 900;
+    src: url(/fonts/NotoSans-Italic.ttf) format('ttf');
+  }
+}

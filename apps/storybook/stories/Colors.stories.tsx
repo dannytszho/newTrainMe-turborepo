@@ -7,6 +7,10 @@ export default {
   component: ColorsS,
 }
 
-export const Colors = args => {
+const Colors = args => {
   return <ColorsS {...args} />
 }
+
+export const Slate = Colors.bind({})
+
+Slate.args = {}
