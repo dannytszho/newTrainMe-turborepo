@@ -4,12 +4,14 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 import {
+  add,
   startOfToday,
   format,
   parse,
   parseISO,
   eachDayOfInterval,
   endOfMonth,
+  endOfWeek,
   getDay,
   isEqual,
   isToday,
@@ -22,16 +24,26 @@ function classNames(...classes: any[]) {
 }
 
 const Calendar = () => {
-  let today = startOfToday()
-  let [selectedDay, setSelectedDay] = useState(today)
-  let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
-  let firstDayCurrentMonth = parse(currentMonth, 'MMMM-yyyy', new Date())
+  const today = startOfToday()
+  const [selectedDay, setSelectedDay] = useState(today)
+  const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
+  const firstDayCurrentMonth = parse(currentMonth, 'MMMM-yyyy', new Date())
 
-  let days = eachDayOfInterval({
+  const days = eachDayOfInterval({
     start: firstDayCurrentMonth,
-    end: endOfMonth(firstDayCurrentMonth),
+    end: endOfWeek(endOfMonth(firstDayCurrentMonth)),
   })
-  console.log(days)
+
+  const previousMonth = () => {
+    const firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 })
+    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
+  }
+
+  const nextMonth = () => {
+    const firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 })
+    setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
+  }
+
   return (
     <>
       <div className="max-w-md px-4 py-2 mx-auto sm:px-7 md:max-w-4xl md:px-6">
@@ -42,12 +54,14 @@ const Calendar = () => {
           <div className="flex">
             <button
               type="button"
+              onClick={previousMonth}
               className="-my-1 flex flex-none items-center justify-center p-1.5 cursor-pointer w-4 h-4 text-gray-400 hover:text-gray-600"
             >
               <FontAwesomeIcon icon={faChevronLeft} style={{ fontSize: 15 }} />
             </button>
             <button
               type="button"
+              onClick={nextMonth}
               className="-my-1 -mr-1.5 ml-2 flex flex-none items-center justify-center p-1.5 cursor-pointer w-4 h-4 text-gray-400 hover:text-gray-600"
             >
               <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: 15 }} />
@@ -69,7 +83,7 @@ const Calendar = () => {
               key={day.toString()}
               className={classNames(
                 dayIndex === 0 && colStartClasses[getDay(day)],
-                'py-2',
+                'py-1.5',
               )}
             >
               <button
