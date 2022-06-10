@@ -40,7 +40,7 @@ const Home: NextPage = () => {
         <h1 className="font-titilliumWeb">AaHome</h1>
         <h1 className="font-spline">AaHome</h1>
         <Link href="/aware">
-          <a>AaHome</a>
+          <a>Awareness</a>
         </Link>
         <br />
         <Link href="/stopwatch">
