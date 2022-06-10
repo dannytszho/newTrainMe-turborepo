@@ -79,6 +79,15 @@ const Nav = () => {
               description="Players"
               href="/players"
             />
+            <li className="text-gray-300 pt-2">
+              <Divider />
+            </li>
+            <NavButton
+              size={'small'}
+              backgroundColor={'#60A5FA'}
+              description="Portal"
+              href="/playerportal"
+            />
           </SignedIn>
         </div>
       </ul>

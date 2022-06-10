@@ -6,6 +6,18 @@
     font-family: 'notoSans';
     /* font-family: Elephant; */
     font-weight: 900;
-    src: url(/fonts/NotoSans-Italic.ttf) format('ttf');
+    src: url('/fonts/NotoSans-LightItalic.ttf') format('ttf');
+  }
+
+  @font-face {
+    font-family: 'titilliumWeb';
+    font-weight: 500;
+    src: url('/fonts/TitilliumWeb-Bold.ttf') format('ttf');
+  }
+
+  @font-face {
+    font-family: 'spline';
+    font-weight: 900;
+    src: url('/fonts/SplineSansMono-Regular.ttf') format('ttf');
   }
 }

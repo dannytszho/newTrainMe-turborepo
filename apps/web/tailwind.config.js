@@ -7,6 +7,15 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
+      },
+      fontFamily: {
+        notoSans: ['notoSans'],
+        titilliumWeb: ['titilliumWeb'],
+        spline: ['Spline'],
+      },
       Animation: {
         textclip: 'textclip 2s linear infinite',
         show: 'show 4s linear infinite',

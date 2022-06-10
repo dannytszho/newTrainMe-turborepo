@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        notoSans: ['notoSans', 'italic'],
+        notoSans: ['notoSans', 'thinItalic'],
+        titilliumWeb: ['titilliumWeb', 'light'],
       },
     },
   },

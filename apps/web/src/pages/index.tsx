@@ -36,9 +36,11 @@ const Home: NextPage = () => {
       </section>
       {/* Hero section */}
       <section className="px-6 p-96 mx-auto dark:bg-black">
-        <h1>Home</h1>
+        <h1 className="font-notoSans">AaHome</h1>
+        <h1 className="font-titilliumWeb">AaHome</h1>
+        <h1 className="font-spline">AaHome</h1>
         <Link href="/aware">
-          <a>Awareness</a>
+          <a>AaHome</a>
         </Link>
         <br />
         <Link href="/stopwatch">
