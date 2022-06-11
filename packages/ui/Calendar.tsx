@@ -31,7 +31,7 @@ const games = [
     id: 2,
     location: 'Mount Miguel High school',
     opponent: 'Valencia CF',
-    gameDateTime: '2022-06-25T13:00',
+    gameDateTime: '2022-06-25T11:00',
   },
 ]
 
@@ -144,7 +144,7 @@ const Calendar = () => {
                       {format(day, 'd')}
                     </time>
                   </button>
-                  <div className="w-1 h-1 mx-auto mt-1">
+                  <div className="w-1 h-1 mx-auto">
                     {games.some(game =>
                       isSameDay(parseISO(game.gameDateTime), day),
                     ) && (
@@ -155,9 +155,28 @@ const Calendar = () => {
               ))}
             </div>
           </div>
-          <div className="text-black font-semibold text-xs pt-2">
-            Schdule for next game
-          </div>
+          <section className="text-black">
+            <h2 className="text-black font-semibold text-sm pt-2">
+              Schdule for next game
+            </h2>
+            <ol className="mt-2 text-gray-500 text-xs">
+              {selectedDayGames.length > 0 ? (
+                selectedDayGames.map(game => (
+                  <li key={game.id}>
+                    <div>{game.location}</div>
+                    <div>{game.opponent}</div>
+                    <div>
+                      <time dateTime={game.gameDateTime}>
+                        {format(parseISO(game.gameDateTime), 'h:mm a')}
+                      </time>
+                    </div>
+                  </li>
+                ))
+              ) : (
+                <p>No game for this week</p>
+              )}
+            </ol>
+          </section>
         </div>
       </div>
     </>
