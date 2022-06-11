@@ -16,8 +16,24 @@ import {
   isEqual,
   isToday,
   isSameMonth,
+  isSameDay,
 } from 'date-fns'
 import { Fragment, useState } from 'react'
+
+const games = [
+  {
+    id: 1,
+    location: 'Grossmont High school',
+    opponent: 'Guadalajara',
+    gameDateTime: '2022-06-18T13:00',
+  },
+  {
+    id: 2,
+    location: 'Mount Miguel High school',
+    opponent: 'Valencia CF',
+    gameDateTime: '2022-06-25T13:00',
+  },
+]
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
@@ -44,76 +60,104 @@ const Calendar = () => {
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
+  const selectedDayGames = games.filter(game =>
+    isSameDay(parseISO(game.gameDateTime), selectedDay),
+  )
+
   return (
     <>
       <div className="max-w-md px-4 py-2 mx-auto sm:px-7 md:max-w-4xl md:px-6">
-        <div className="flex justify-between items-center mt-2">
-          <div className="text-sm font-semibold text-gray-900">
-            {format(firstDayCurrentMonth, 'MMMM yyyy')}
-          </div>
-          <div className="flex">
-            <button
-              type="button"
-              onClick={previousMonth}
-              className="-my-1 flex flex-none items-center justify-center p-1.5 cursor-pointer w-4 h-4 text-gray-400 hover:text-gray-600"
-            >
-              <FontAwesomeIcon icon={faChevronLeft} style={{ fontSize: 15 }} />
-            </button>
-            <button
-              type="button"
-              onClick={nextMonth}
-              className="-my-1 -mr-1.5 ml-2 flex flex-none items-center justify-center p-1.5 cursor-pointer w-4 h-4 text-gray-400 hover:text-gray-600"
-            >
-              <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: 15 }} />
-            </button>
-          </div>
-        </div>
-        <div className="grid grid-cols-7 mt-4 text-sm text-center text-gray-500">
-          <div>S</div>
-          <div>M</div>
-          <div>T</div>
-          <div>W</div>
-          <div>T</div>
-          <div>F</div>
-          <div>S</div>
-        </div>
-        <div className="grid grid-cols-7 mt-2 text-xs">
-          {days.map((day, dayIndex) => (
-            <div
-              key={day.toString()}
-              className={classNames(
-                dayIndex === 0 && colStartClasses[getDay(day)],
-                'py-1.5',
-              )}
-            >
-              <button
-                type="button"
-                onClick={() => setSelectedDay(day)}
-                className={classNames(
-                  isEqual(day, selectedDay) && 'text-white',
-                  !isEqual(day, selectedDay) && isToday(day) && 'text-red-500',
-                  !isEqual(day, selectedDay) &&
-                    !isToday(day) &&
-                    isSameMonth(day, firstDayCurrentMonth) &&
-                    'text-gray-900',
-                  !isEqual(day, selectedDay) &&
-                    !isToday(day) &&
-                    !isSameMonth(day, firstDayCurrentMonth) &&
-                    'text-gray-400',
-                  isEqual(day, selectedDay) && isToday(day) && 'bg-red-500',
-                  isEqual(day, selectedDay) && !isToday(day) && 'bg-gray-900',
-                  !isEqual(day, selectedDay) && 'hover:bg-gray-200',
-                  (isEqual(day, selectedDay) || isToday(day)) &&
-                    'font-semibold',
-                  'mx-auto flex h-7 w-7 items-center justify-center rounded-full',
-                )}
-              >
-                <time dateTime={format(day, 'yyyy-MM-dd')}>
-                  {format(day, 'd')}
-                </time>
-              </button>
+        <div className="grid grid-cols-1 divide-y">
+          <div>
+            <div className="flex justify-between items-center mt-2">
+              <div className="text-sm font-semibold text-gray-900">
+                {format(firstDayCurrentMonth, 'MMMM yyyy')}
+              </div>
+              <div className="flex">
+                <button
+                  type="button"
+                  onClick={previousMonth}
+                  className="-my-1 flex flex-none items-center justify-center p-1.5 cursor-pointer w-4 h-4 text-gray-400 hover:text-gray-600"
+                >
+                  <FontAwesomeIcon
+                    icon={faChevronLeft}
+                    style={{ fontSize: 15 }}
+                  />
+                </button>
+                <button
+                  type="button"
+                  onClick={nextMonth}
+                  className="-my-1 -mr-1.5 ml-2 flex flex-none items-center justify-center p-1.5 cursor-pointer w-4 h-4 text-gray-400 hover:text-gray-600"
+                >
+                  <FontAwesomeIcon
+                    icon={faChevronRight}
+                    style={{ fontSize: 15 }}
+                  />
+                </button>
+              </div>
             </div>
-          ))}
+            <div className="grid grid-cols-7 mt-4 text-sm text-center text-gray-500">
+              <div>S</div>
+              <div>M</div>
+              <div>T</div>
+              <div>W</div>
+              <div>T</div>
+              <div>F</div>
+              <div>S</div>
+            </div>
+            <div className="grid grid-cols-7 mt-2 text-xs">
+              {days.map((day, dayIndex) => (
+                <div
+                  key={day.toString()}
+                  className={classNames(
+                    dayIndex === 0 && colStartClasses[getDay(day)],
+                    'py-1.5',
+                  )}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setSelectedDay(day)}
+                    className={classNames(
+                      isEqual(day, selectedDay) && 'text-white',
+                      !isEqual(day, selectedDay) &&
+                        isToday(day) &&
+                        'text-red-500',
+                      !isEqual(day, selectedDay) &&
+                        !isToday(day) &&
+                        isSameMonth(day, firstDayCurrentMonth) &&
+                        'text-gray-900',
+                      !isEqual(day, selectedDay) &&
+                        !isToday(day) &&
+                        !isSameMonth(day, firstDayCurrentMonth) &&
+                        'text-gray-400',
+                      isEqual(day, selectedDay) && isToday(day) && 'bg-red-500',
+                      isEqual(day, selectedDay) &&
+                        !isToday(day) &&
+                        'bg-gray-900',
+                      !isEqual(day, selectedDay) && 'hover:bg-gray-200',
+                      (isEqual(day, selectedDay) || isToday(day)) &&
+                        'font-semibold',
+                      'mx-auto flex h-7 w-7 items-center justify-center rounded-full',
+                    )}
+                  >
+                    <time dateTime={format(day, 'yyyy-MM-dd')}>
+                      {format(day, 'd')}
+                    </time>
+                  </button>
+                  <div className="w-1 h-1 mx-auto mt-1">
+                    {games.some(game =>
+                      isSameDay(parseISO(game.gameDateTime), day),
+                    ) && (
+                      <div className="w-1 h-1 rounded-full bg-sky-500"></div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="text-black font-semibold text-xs pt-2">
+            Schdule for next game
+          </div>
         </div>
       </div>
     </>
