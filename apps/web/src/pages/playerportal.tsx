@@ -1,4 +1,5 @@
 import Calendar from 'ui/Calendar'
+import GoogleMaps from 'ui/public/common/GoogleMaps'
 
 const PlayerPortal = () => {
   return (
@@ -8,8 +9,8 @@ const PlayerPortal = () => {
           <div className="w-[227px] h-[450px] m-6 border-4 rounded-lg bg-white">
             <Calendar />
           </div>
-          <div className="w-[227px] h-[236px] m-6 border-4 rounded-lg bg-white">
-            1
+          <div className="w-[227px] h-[300px] m-6 border-4 rounded-lg bg-white">
+            <GoogleMaps />
           </div>
         </div>
       </div>

@@ -163,13 +163,13 @@ const Calendar = () => {
               {selectedDayGames.length > 0 ? (
                 selectedDayGames.map(game => (
                   <li key={game.id}>
-                    <div>{game.location}</div>
-                    <div>{game.opponent}</div>
+                    <div className="py-1">{game.location}</div>
                     <div>
                       <time dateTime={game.gameDateTime}>
                         {format(parseISO(game.gameDateTime), 'h:mm a')}
                       </time>
                     </div>
+                    <div className="py-2">vs {game.opponent}</div>
                   </li>
                 ))
               ) : (
