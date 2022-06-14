@@ -9,9 +9,9 @@ const PlayerPortal = () => {
           <div className="w-[227px] h-[450px] m-6 border-4 rounded-lg bg-white">
             <Calendar />
           </div>
-          <div className="w-[227px] h-[300px] m-6 border-4 rounded-lg bg-white">
+          {/* <div className="w-[227px] h-[300px] m-6 border-4 rounded-lg bg-white">
             <GoogleMaps />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

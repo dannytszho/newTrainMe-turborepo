@@ -19,6 +19,8 @@ import {
   isSameDay,
 } from 'date-fns'
 import { Fragment, useState } from 'react'
+import MapModal from './MapModal'
+import GoogleMaps from 'ui/public/common/GoogleMaps'
 
 const games = [
   {
@@ -44,6 +46,7 @@ const Calendar = () => {
   const [selectedDay, setSelectedDay] = useState(today)
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   const firstDayCurrentMonth = parse(currentMonth, 'MMMM-yyyy', new Date())
+  const [showModal, setShowModal] = useState(false)
 
   const days = eachDayOfInterval({
     start: firstDayCurrentMonth,
@@ -163,7 +166,25 @@ const Calendar = () => {
               {selectedDayGames.length > 0 ? (
                 selectedDayGames.map(game => (
                   <li key={game.id}>
-                    <div className="py-1">{game.location}</div>
+                    <div
+                      className="py-1 hover:underline"
+                      onClick={() => setShowModal(true)}
+                    >
+                      {game.location}
+                    </div>
+                    {showModal ? (
+                      <>
+                        <div className="flex w-[227px] h-[300px] m-6 border-1 rounded-lg bg-white">
+                          <GoogleMaps />
+                          <button
+                            className="text-black"
+                            onClick={() => setShowModal(false)}
+                          >
+                            x
+                          </button>
+                        </div>
+                      </>
+                    ) : null}
                     <div>
                       <time dateTime={game.gameDateTime}>
                         {format(parseISO(game.gameDateTime), 'h:mm a')}
