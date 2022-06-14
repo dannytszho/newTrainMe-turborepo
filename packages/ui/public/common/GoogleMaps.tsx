@@ -6,7 +6,7 @@ const GoogleMaps = () => {
       height="220"
       allowFullScreen
       loading="lazy"
-      src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ1RoHdmFX2YARrRCfMSfDz9c&key=AIzaSyDDZdDHn35hQ2PHYCqTSoWYrtQI7odBZB8"
+      src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ1RoHdmFX2YARrRCfMSfDz9c&key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY}`}
     />
   )
 }
