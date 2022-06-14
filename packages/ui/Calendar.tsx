@@ -19,7 +19,7 @@ import {
   isSameDay,
 } from 'date-fns'
 import { Fragment, useState } from 'react'
-import MapModal from './MapModal'
+import MapModal from './public/common/MapModal'
 import GoogleMaps from 'ui/public/common/GoogleMaps'
 
 const games = [
@@ -172,25 +172,17 @@ const Calendar = () => {
                     >
                       {game.location}
                     </div>
-                    {showModal ? (
-                      <>
-                        <div className="flex w-[227px] h-[300px] m-6 border-1 rounded-lg bg-white">
-                          <GoogleMaps />
-                          <button
-                            className="text-black"
-                            onClick={() => setShowModal(false)}
-                          >
-                            x
-                          </button>
-                        </div>
-                      </>
-                    ) : null}
                     <div>
                       <time dateTime={game.gameDateTime}>
                         {format(parseISO(game.gameDateTime), 'h:mm a')}
                       </time>
                     </div>
                     <div className="py-2">vs {game.opponent}</div>
+                    <div>
+                      {showModal ? (
+                        <MapModal onClick={() => setShowModal(false)} />
+                      ) : null}
+                    </div>
                   </li>
                 ))
               ) : (
