@@ -18,8 +18,6 @@ const Nav = () => {
   const handleOpen = () => {
     setIsMenuOpen(true)
     const bodyElement = document.getElementsByTagName('body')?.[0]
-    console.log(bodyElement)
-    console.log('////////////////////')
 
     if (bodyElement) {
       bodyElement.style.overflow = 'hidden'
@@ -29,7 +27,6 @@ const Nav = () => {
   const handleClose = () => {
     setIsMenuOpen(false)
     const bodyElement = document.getElementsByTagName('body')?.[0]
-    console.log(bodyElement)
     if (bodyElement) {
       bodyElement.style.overflow = 'auto'
     }
