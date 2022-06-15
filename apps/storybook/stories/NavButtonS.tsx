@@ -6,13 +6,14 @@ import NavButton from 'ui/buttons/NavButton'
  * Primary UI component for user interaction
  */
 
-export const NavButtonS = ({ label, size, backgroundColor }) => {
+export const NavButtonS = ({ label, size, backgroundColor, borderRadius }) => {
   return (
     <>
       <NavButton
         href={'/'}
         size={size}
         backgroundColor={backgroundColor}
+        borderRadius={borderRadius}
         description={label}
       />
     </>

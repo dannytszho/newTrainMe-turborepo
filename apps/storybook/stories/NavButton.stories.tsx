@@ -9,6 +9,16 @@ export default {
     size: { options: ['xSmall', 'small', 'medium', 'large', 'xLarge'] },
     label: { control: { type: 'text' } },
     backgroundColor: { control: 'color' },
+    borderRadius: {
+      options: [
+        'notRounded',
+        'rounded',
+        'smallRounded',
+        'mediumRounded',
+        'largeRounded',
+      ],
+      control: 'radio',
+    },
   },
 }
 
@@ -22,6 +32,7 @@ Primary.args = {
   label: 'YOLO',
   size: 'medium',
   backgroundColor: '#60A5FA',
+  borderRadius: 'rounded',
 }
 
 export const Secondary = NavButton.bind({})
@@ -30,4 +41,5 @@ Secondary.args = {
   label: "Don't repeat yourself",
   size: 'xLarge',
   backgroundColor: '#FA466F',
+  borderRadius: 'notRounded',
 }

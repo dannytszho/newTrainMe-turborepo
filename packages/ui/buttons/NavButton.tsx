@@ -6,11 +6,18 @@ const NavButton = ({
   href,
   size,
   backgroundColor,
+  borderRadius,
 }: {
   description: string
   href: string
   size: 'xSmall' | 'small' | 'medium' | 'large' | 'xLarge'
   backgroundColor: string
+  borderRadius:
+    | 'notRounded'
+    | 'rounded'
+    | 'smallRounded'
+    | 'mediumRounded'
+    | 'largeRounded'
 }) => {
   const sizeMap = {
     xSmall: 'w-20 h-6',
@@ -19,13 +26,21 @@ const NavButton = ({
     large: 'w-36 h-10',
     xLarge: 'w-48 h-16',
   }
+  const borderMap = {
+    notRounded: 'rounded-none',
+    rounded: 'rounded-full',
+    smallRounded: 'rounded-sm',
+    mediumRounded: 'rounded-md',
+    largeRounded: 'rounded-lg',
+  }
   return (
     <Link href={href}>
       <button
         type="button"
         className={[
-          'cursor-pointer rounded-full text-white drop-shadow-lg',
+          'cursor-pointer text-white drop-shadow-lg',
           `${sizeMap[size]}`,
+          `${borderMap[borderRadius]}`,
         ].join(' ')}
         style={{ background: `${backgroundColor}` }}
       >
