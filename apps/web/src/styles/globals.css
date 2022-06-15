@@ -3,6 +3,11 @@
 @tailwind utilities;
 @layer base {
   @font-face {
+    font-family: 'fascinate';
+    src: url('/fonts/Fascinate-Regular.ttf') format('ttf');
+  }
+
+  @font-face {
     font-family: 'notoSans';
     /* font-family: Elephant; */
     font-weight: 900;

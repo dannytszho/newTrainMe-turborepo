@@ -7,9 +7,8 @@ export default {
   component: FontsS,
 }
 
-const Fonts = args => {
+export const Fonts = args => {
   return <FontsS {...args} />
 }
 
-export const ff = Fonts.bind({})
-ff.args = {}
+Fonts.args = {}

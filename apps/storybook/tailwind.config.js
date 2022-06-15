@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        fascinate: ['fascinate', 'regular'],
         notoSans: ['notoSans', 'thinItalic'],
         titilliumWeb: ['titilliumWeb', 'light'],
       },
