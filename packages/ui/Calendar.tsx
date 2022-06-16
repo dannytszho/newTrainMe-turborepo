@@ -1,8 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faChevronLeft,
-  faChevronRight,
-} from '@fortawesome/free-solid-svg-icons'
 import {
   add,
   startOfToday,
@@ -21,6 +16,7 @@ import {
 import { Fragment, useState } from 'react'
 import MapModal from './public/common/MapModal'
 import GoogleMaps from 'ui/public/common/GoogleMaps'
+import { NextMonthIcon, PrevMonthIcon } from './buttons/ChangeMonthIcon'
 
 const games = [
   {
@@ -77,26 +73,8 @@ const Calendar = () => {
                 {format(firstDayCurrentMonth, 'MMMM yyyy')}
               </div>
               <div className="flex">
-                <button
-                  type="button"
-                  onClick={previousMonth}
-                  className="-my-1 flex flex-none items-center justify-center p-1.5 cursor-pointer w-4 h-4 text-gray-400 hover:text-gray-600"
-                >
-                  <FontAwesomeIcon
-                    icon={faChevronLeft}
-                    style={{ fontSize: 15 }}
-                  />
-                </button>
-                <button
-                  type="button"
-                  onClick={nextMonth}
-                  className="-my-1 -mr-1.5 ml-2 flex flex-none items-center justify-center p-1.5 cursor-pointer w-4 h-4 text-gray-400 hover:text-gray-600"
-                >
-                  <FontAwesomeIcon
-                    icon={faChevronRight}
-                    style={{ fontSize: 15 }}
-                  />
-                </button>
+                <PrevMonthIcon previousMonth={previousMonth} />
+                <NextMonthIcon nextMonth={nextMonth} />
               </div>
             </div>
             <div className="grid grid-cols-7 mt-4 text-sm text-center text-gray-500">

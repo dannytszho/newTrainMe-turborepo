@@ -54,6 +54,7 @@ const Nav = () => {
           <NavButton
             size={'medium'}
             backgroundColor={'#60A5FA'}
+            borderRadius={'rounded'}
             description="Stopwatch"
             href="/stopwatch"
           />
@@ -64,6 +65,7 @@ const Nav = () => {
             <NavButton
               size={'medium'}
               backgroundColor={'#60A5FA'}
+              borderRadius={'rounded'}
               description="Awareness"
               href="/aware"
             />
@@ -73,6 +75,7 @@ const Nav = () => {
             <NavButton
               size={'small'}
               backgroundColor={'#60A5FA'}
+              borderRadius={'rounded'}
               description="Players"
               href="/players"
             />
@@ -82,6 +85,7 @@ const Nav = () => {
             <NavButton
               size={'small'}
               backgroundColor={'#60A5FA'}
+              borderRadius={'rounded'}
               description="Portal"
               href="/playerportal"
             />
