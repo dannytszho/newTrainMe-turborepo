@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { NextMonthIcon, PrevMonthIcon } from 'ui/buttons/ChangeMonthIcon'
 
-export const PrevMonthIconS = ({ onClick }: { onClick: () => void }) => {
-  return (
-    <>
-      <PrevMonthIcon previousMonth={onClick} />
-    </>
-  )
+interface Props {
+  onClick: () => void
+  size: 'small' | 'medium' | 'large'
+}
+
+export const PrevMonthIconS = ({ onClick, size }: Props) => {
+  return <PrevMonthIcon previousMonth={onClick} size={size} />
 }
 PrevMonthIconS.propTypes = {
   onClick: PropTypes.func,
@@ -17,12 +18,8 @@ PrevMonthIconS.defaultProps = {
   onClick: undefined,
 }
 
-export const NextMonthIconS = ({ onClick }: { onClick: () => void }) => {
-  return (
-    <>
-      <NextMonthIcon nextMonth={onClick} />
-    </>
-  )
+export const NextMonthIconS = ({ onClick, size }: Props) => {
+  return <NextMonthIcon nextMonth={onClick} size={size} />
 }
 
 NextMonthIconS.propTypes = {

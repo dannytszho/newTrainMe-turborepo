@@ -6,6 +6,7 @@ export default {
   title: 'Train Me Design System/Buttons/ChangeMonthButton/PreviousMonthButton',
   component: PrevMonthIconS,
   argTypes: {
+    size: { options: ['small', 'medium', 'large'], control: 'radio' },
     onClick: { action: 'Changed to previous month' },
   },
 }
@@ -19,4 +20,8 @@ export const PreviousMonthButton = args => {
       }}
     />
   )
+}
+
+PreviousMonthButton.args = {
+  size: 'small',
 }

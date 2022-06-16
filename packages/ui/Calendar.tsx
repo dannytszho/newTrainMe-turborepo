@@ -73,7 +73,7 @@ const Calendar = () => {
                 {format(firstDayCurrentMonth, 'MMMM yyyy')}
               </div>
               <div className="flex">
-                <PrevMonthIcon previousMonth={previousMonth} />
+                <PrevMonthIcon previousMonth={previousMonth} size={'small'} />
                 <NextMonthIcon nextMonth={nextMonth} />
               </div>
             </div>

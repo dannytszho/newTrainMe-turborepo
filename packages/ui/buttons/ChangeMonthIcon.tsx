@@ -4,30 +4,54 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 
-export const PrevMonthIcon = ({
-  previousMonth,
+const sizeMap = {
+  small: 'w-4 h-4',
+  medium: 'w-8 h-8',
+  large: 'w-16 h-16',
+}
+
+const ChangeMonthIcon = ({
+  changeMonth,
+  children,
 }: {
-  previousMonth: () => void
+  changeMonth: () => void
+  children: React.ReactNode
 }) => {
   return (
     <button
       type="button"
-      onClick={previousMonth}
-      className="-my-1 flex flex-none items-center justify-center p-1.5 cursor-pointer w-4 h-4 text-gray-400 hover:text-gray-600"
+      onClick={changeMonth}
+      className="-my-1 flex flex-none items-center justify-center p-1.5 cursor-pointer text-gray-400 hover:text-gray-600"
     >
-      <FontAwesomeIcon icon={faChevronLeft} style={{ fontSize: 15 }} />
+      {children}
     </button>
   )
 }
 
-export const NextMonthIcon = ({ nextMonth }: { nextMonth: () => void }) => {
+export const PrevMonthIcon = ({
+  previousMonth,
+  size,
+}: {
+  previousMonth: () => void
+  size: 'small' | 'medium' | 'large'
+}) => {
   return (
-    <button
-      type="button"
-      onClick={nextMonth}
-      className="-my-1 -mr-1.5 ml-2 flex flex-none items-center justify-center p-1.5 cursor-pointer w-4 h-4 text-gray-400 hover:text-gray-600"
-    >
-      <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: 15 }} />
-    </button>
+    <ChangeMonthIcon changeMonth={previousMonth}>
+      <FontAwesomeIcon className={`${sizeMap[size]}`} icon={faChevronLeft} />
+    </ChangeMonthIcon>
+  )
+}
+
+export const NextMonthIcon = ({
+  nextMonth,
+  size,
+}: {
+  nextMonth: () => void
+  size: 'small' | 'medium' | 'large'
+}) => {
+  return (
+    <ChangeMonthIcon changeMonth={nextMonth}>
+      <FontAwesomeIcon className={`${sizeMap[size]}`} icon={faChevronRight} />
+    </ChangeMonthIcon>
   )
 }
