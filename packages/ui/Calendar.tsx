@@ -74,7 +74,7 @@ const Calendar = () => {
               </div>
               <div className="flex">
                 <PrevMonthIcon previousMonth={previousMonth} size={'small'} />
-                <NextMonthIcon nextMonth={nextMonth} />
+                <NextMonthIcon nextMonth={nextMonth} size={'small'} />
               </div>
             </div>
             <div className="grid grid-cols-7 mt-4 text-sm text-center text-gray-500">
